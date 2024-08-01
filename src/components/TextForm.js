@@ -14,6 +14,7 @@ import React,{useState} from 'react'
 
 // console.log(useState('Enter text here2'))
 export default function TextForm(props) {
+    
 
     const handleUpClick=()=>{
         // console.log("Button was clicked."+text)
@@ -44,6 +45,7 @@ export default function TextForm(props) {
         x.select();
         //For selecting the text
         navigator.clipboard.writeText(x.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Text copied.","success");
     }
     const handleSpacing=()=>{
@@ -84,23 +86,23 @@ export default function TextForm(props) {
         <h1>{props.heading}</h1>
         <div className="mb-3">
             {/* <label htmlFor="myBox" className="form-label">Enter your text</label> */}
-            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white',color:props.mode==='dark'?'white':'black'}} id="exampleFormControlTextarea1" rows="8"></textarea>
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'#13466e':'white',color:props.mode==='dark'?'white':'black'}} id="exampleFormControlTextarea1" rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-4" onClick={handleUpClick}>Convert to UPPERCASE</button>
-        <button className="btn btn-primary mx-4" onClick={handleDownClick}>Convert to LOWERCASE</button>
-        <button className="btn btn-primary mx-4" onClick={handleClear}>ClearText</button>
-        <button className="btn btn-primary mx-4" onClick={handleCopy}>CopyText</button>
-        <button className="btn btn-primary mx-4" onClick={handleSpacing}>Remove Extra Spaces</button>
-        <button className="btn btn-primary mx-4" onClick={handleFont}>Change Font</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-4  my-2" onClick={handleUpClick}>Convert to UPPERCASE</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-4 my-2" onClick={handleDownClick}>Convert to LOWERCASE</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-4 my-2" onClick={handleClear}>ClearText</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-4 my-2" onClick={handleCopy}>CopyText</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-4 my-2" onClick={handleSpacing}>Remove Extra Spaces</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-4 my-2" onClick={handleFont}>Change Font</button>
         {/* <a className="btn btn-primary" href="#" role="button">Convert to LOWERCASE</a> */}
     </div>
 
     <div className="container my-4" style={{color:props.mode==='dark'?'white':'black'}}>
         <h1>Your Text summary</h1>
-        <p>{text.split(" ").length} words,{text.length} characters</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words,{text.length} characters</p>
         <p>{0.008*text.split(" ").length} Minutes to read</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter something"}</p>
+        <p>{text.length>0?text:"Nothing to preview"}</p>
     </div>
     </>
         

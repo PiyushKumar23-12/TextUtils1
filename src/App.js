@@ -2,10 +2,10 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import About from "./components/About";
+import About from "./components/About";
 import React, { useState } from "react";
-// import Alert from "./components/Alert";
-// import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
+import Alert from "./components/Alert";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import {Switch} from 'react-router-dom';
 
 // let name ="Harry";
@@ -41,30 +41,30 @@ function App() {
     //JSX-->similar to html with a look of JavaScript
     // <div classNameName="blank">Lovely</div>
     <>
-    {/* <Router> */}
+    <Router>
       <Navbar
         title="Hello"
         aboutText="About"
         mode={mode}
         togglemode={togglemode}
       />
-      {/* <Alert alert={alert} /> */}
+      <Alert alert={alert} />
       {/* <Navbar/> */}
       <div className="container my-3">
-        {/* <Switch> */}
-          {/* <Route exact path="/about">
-            <About/>
-          </Route> */}
+        <Switch>
+          <Route exact path="/about" >
+            <About mode={mode}/>
+          </Route>
 
-          {/* <Route exact path="/"> */}
-            <TextForm showAlert={showAlert} heading="Enter Text" mode={mode} />
+          <Route exact path="/">
+            <TextForm showAlert={showAlert} heading="Try TextUtils-Word Counter,Character Counter,Remove Extra spaces" mode={mode} />
             {/* <Home /> */}
-          {/* </Route> */}
-        {/* </Switch> */}
+          </Route>
+        </Switch>
       </div>
 
       {/* <About /> */}
-    {/* </Router> */}
+    </Router>
     </>
   );
 }
