@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PiyushKumar23-12/TextUtils1/static/css/main.2109924d.css",
+    "main.js": "/PiyushKumar23-12/TextUtils1/static/js/main.b2184992.js",
+    "static/js/453.ed3810f9.chunk.js": "/PiyushKumar23-12/TextUtils1/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/PiyushKumar23-12/TextUtils1/index.html",
+    "main.2109924d.css.map": "/PiyushKumar23-12/TextUtils1/static/css/main.2109924d.css.map",
+    "main.b2184992.js.map": "/PiyushKumar23-12/TextUtils1/static/js/main.b2184992.js.map",
+    "453.ed3810f9.chunk.js.map": "/PiyushKumar23-12/TextUtils1/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2109924d.css",
+    "static/js/main.b2184992.js"
+  ]
+}
